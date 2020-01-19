@@ -1,0 +1,22 @@
+{
+  "name": "scully-talk-jamstackgr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck presentation.mdx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanlentz/scully-talk-jamstackgr.git"
+  },
+  "author": "Nate Lentz (nathanalentz@gmail.com)",
+  "license": "(MIT)",
+  "bugs": {
+    "url": "https://github.com/nathanlentz/scully-talk-jamstackgr/issues"
+  },
+  "homepage": "https://github.com/nathanlentz/scully-talk-jamstackgr#readme",
+  "devDependencies": {
+    "mdx-deck": "^3.0.13"
+  }
+}
