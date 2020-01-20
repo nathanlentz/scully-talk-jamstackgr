@@ -1,10 +1,59 @@
+import { Appear, Image } from 'mdx-deck'
 
-# This is the title page
+import { syntaxHighlighter } from 'mdx-deck/themes'
+import customTheme from './theme'
+
+export const themes = [syntaxHighlighter, customTheme]
+
+# Scully: The Angular Static Site Generator
+### JAMStackGR / January 21, 2020
+
+<Image src="/images/scully-logo.png" />
 
 ---
 
-# Page 2
+## Why Scully?
+
+<ul>
+<Appear>
+  <li>You get to write Angular!</li>
+  <li>SEO Gains</li>
+  <li>Better experience for users</li>
+</Appear>
+</ul>
 
 ---
 
-# Page 3
+## How does Scully work?
+
+<Image src="/images/puppeteer-logo.png" />
+
+<ul>
+<Appear>
+  <li>Find ye ol routes!</li>
+  <li>Walk known routes and render</li>
+</Appear>
+</ul>
+
+---
+
+## Enough talk, show me!!!
+```js
+ng add @scullyio/init
+```
+
+---
+
+code
+
+---
+
+## Thank You!
+
+__links__
+
+Scully: https://github.com/scullyio/scully
+
+Presentation Deck: https://github.com/nathanlentz/scully-talk-jamstackgr
+
+---

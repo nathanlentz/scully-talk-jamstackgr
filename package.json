@@ -1,22 +1,18 @@
 {
+  "private": true,
   "name": "scully-talk-jamstackgr",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "mdx-deck presentation.mdx"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nathanlentz/scully-talk-jamstackgr.git"
-  },
+  "version": "0.0.1",
   "author": "Nate Lentz (nathanalentz@gmail.com)",
-  "license": "(MIT)",
-  "bugs": {
-    "url": "https://github.com/nathanlentz/scully-talk-jamstackgr/issues"
+  "description": "Scully: The Angular Static Site Generator",
+  "scripts": {
+    "start": "mdx-deck presentation.mdx",
+    "build": "mdx-deck build presentation.mdx && cp -r images dist/"
   },
-  "homepage": "https://github.com/nathanlentz/scully-talk-jamstackgr#readme",
+  "dependencies": {},
   "devDependencies": {
     "mdx-deck": "^3.0.13"
+  },
+  "resolutions": {
+    "mdx-deck/**/gatsby": "2.18.4"
   }
 }
