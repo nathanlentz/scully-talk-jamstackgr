@@ -1,14 +1,18 @@
-import { Appear, Image } from 'mdx-deck'
+import { Appear } from 'mdx-deck'
 
 import { syntaxHighlighter } from 'mdx-deck/themes'
 import customTheme from './theme'
+import Image from './components/image'
+
+import scullyImage from './images/scully-logo.png';
 
 export const themes = [syntaxHighlighter, customTheme]
 
-# Scully: The Angular Static Site Generator
-### JAMStackGR / January 21, 2020
+<img src={scullyImage} alt="scully" style="height: 250px; display: flex; margin: 0 auto;"/>
 
-<Image src="/images/scully-logo.png" />
+## Scully: The Angular Static Site Generator
+
+ JAMStackGR / January 21, 2020
 
 ---
 
@@ -17,8 +21,22 @@ export const themes = [syntaxHighlighter, customTheme]
 <ul>
 <Appear>
   <li>You get to write Angular!</li>
-  <li>SEO Gains</li>
+  <li>Opportunity to save money</li>
+  <li>Improved SEO (increased conversion, faster page loads, increased crawlability)</li>
   <li>Better experience for users</li>
+</Appear>
+</ul>
+
+---
+
+## Why not Scully?
+
+<ul>
+<Appear>
+  <li>Slooooooow</li>
+  <li>Less feature rich when compared to Gatsby, Gridsome, next.js</li>
+  <li>Small development team</li>
+  <li>Lack of documentation</li>
 </Appear>
 </ul>
 
@@ -26,25 +44,29 @@ export const themes = [syntaxHighlighter, customTheme]
 
 ## How does Scully work?
 
-<Image src="/images/puppeteer-logo.png" />
+import puppeteer from './images/puppeteer-logo.png';
+
+<img src={puppeteer} alt="puppeteer" style="height: 200px; display: flex; margin: 0 auto; float: right;"/>
+
+Puppeteer under the hood which permits ability to crawl SPAs
 
 <ul>
 <Appear>
-  <li>Find ye ol routes!</li>
-  <li>Walk known routes and render</li>
+  <li>Route Discovery</li>
+  <li>Traverse known routes and render</li>
 </Appear>
 </ul>
 
 ---
 
-## Enough talk, show me!!!
+## Enough talk, show me!!!👨‍💻
 ```js
 ng add @scullyio/init
 ```
 
 ---
 
-code
+## Plugins 🔌
 
 ---
 
