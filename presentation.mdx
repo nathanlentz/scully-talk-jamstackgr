@@ -4,16 +4,15 @@ import { CodeSurfer } from 'code-surfer'
 import { syntaxHighlighter } from 'mdx-deck/themes'
 import customTheme from './theme'
 import Image from './components/image'
+import HeadingCenter from './components/HeadingCenter'
 
-import scullyImage from './images/scully-logo.png';
+import scullyImage from './images/Jamstack_scully.svg';
 
 export const themes = [syntaxHighlighter, customTheme]
 
-<img src={scullyImage} alt="scully" style="height: 250px; display: flex; margin: 0 auto;"/>
+<img src={scullyImage} alt="scully" style="height: 500px; display: flex; margin: 0 auto;"/>
 
-## Scully: The Angular Static Site Generator
-
- JAMStackGR / January 21, 2020
+<HeadingCenter text="Scully: The Angular Static Site Generator"></HeadingCenter>
 
 ---
 
@@ -54,7 +53,6 @@ The bad.
 ## How does Scully work?
 
 import puppeteer from './images/puppeteer-logo.png';
-import scullydiagram from './images/scully-diagram.png';
 
 <img src={puppeteer} alt="puppeteer" style="height: 200px; display: flex; margin: 0 auto; float: right;"/>
 
@@ -67,7 +65,11 @@ Puppeteer under the hood which permits ability to crawl SPAs
 </Appear>
 </ul>
 
-<img src={scullydiagram} style="margin-top: 25px;" alt="scully diagram" />
+---
+
+import scullydiagram from './images/scully-diagram.png';
+
+<img src={scullydiagram} style="margin-top: 25px; height: 100%;" alt="scully diagram" />
 
 ---
 
@@ -104,6 +106,22 @@ Plugins are used to define ways for Scully to pre-render your app.
 
 <CodeSurfer>
 
+```js title="The Scully Config Interface"
+export interface ScullyConfig {
+  projectRoot: string;
+  homeFolder: string;
+  outDir?: string;
+  distFolder?: string;
+  routes: RouteConfig;
+  extraRoutes?: string[];
+  appPort: number;
+  staticport: number;
+  puppeteerLaunchOptions?: LaunchOptions;
+  hostName?: string;
+  hostUrl?: string;
+}
+```
+
 ```js title="scully-config.js"
 exports.config = {
   projectRoot: "./src/app",
@@ -117,7 +135,7 @@ exports.config = {
   projectRoot: "./src/app",
   outFolder: './dist/static',
   routes: {
-    "/posts/post:id": {
+    "/posts/post/:id": {
       type: "myPlugin",
     }
   }
@@ -132,7 +150,7 @@ exports.config = {
 
 ```js title="Router Plugin"
 // scully-config.js
-const { registerPlugin } require('@scullio/scully);
+const { registerPlugin, configValidator } = require('@scullio/scully);
 
 function myPlugin(route, config) {
   return fetch('https://jsonplaceholder.typicode.com/posts')
@@ -144,7 +162,7 @@ function myPlugin(route, config) {
     );
 }
 
-registerPlugin('router', 'myPlugin', myPlugin)
+registerPlugin('router', 'myPlugin', myPlugin);
 ```
 
 ```js 13 title="Register Plugin: type, name, function"
@@ -160,7 +178,7 @@ function myPlugin(route, config) {
     );
 }
 
-registerPlugin('router', 'myPlugin', myPlugin)
+registerPlugin('router', 'myPlugin', myPlugin);
 ```
 
 ```js 3:12 title="Register Plugin: Function"
@@ -181,7 +199,7 @@ registerPlugin('router', 'myPlugin', myPlugin)
 ```
 
 ```js 1,12:13 title="Required Config Validator"
-const { configValidator, registerPlugin } require('@scullio/scully);
+const { configValidator, registerPlugin } = require('@scullio/scully);
 
 function myPlugin(route, config) {
   return fetch('https://jsonplaceholder.typicode.com/posts')
@@ -205,7 +223,7 @@ registerPlugin('router', 'myPlugin', myPlugin)
 
 ---
 
-## Additional Topics (if time permits)
+## Bonus Topics (if time permits)
 
 ### Transfer State
 <ul>
@@ -214,6 +232,18 @@ registerPlugin('router', 'myPlugin', myPlugin)
   <li>Can be used to reduce http calls in production apps</li>
 </Appear>
 </ul>
+
+---
+
+<CodeSurfer>
+
+```js title="Transfer State: A Small Example"
+user$ = isScullyGenerated()
+  ? this.transferState.getState('user')
+  : this.apiUser$.pipe(tap(user => this.transferState.setState('user', user)));
+```
+
+</CodeSurfer>
 
 ---
 
